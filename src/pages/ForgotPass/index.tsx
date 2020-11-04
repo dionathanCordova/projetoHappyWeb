@@ -33,7 +33,7 @@ const ForgotPass: React.FC = () => {
          email
       });
       
-      if(response.data.status == 'erro') {
+      if(response.data.status === 'erro') {
          swal(
             "Ops!",
             'Não temos registro deste email',
@@ -44,7 +44,7 @@ const ForgotPass: React.FC = () => {
       }
       console.log(response.data);
 
-   }, [])
+   }, [email])
 
    return (
       <Container>

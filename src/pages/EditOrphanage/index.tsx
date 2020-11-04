@@ -51,7 +51,7 @@ export default function EditOrphanage(props: any) {
 
          handleOrphanageImages(data.images);
       })
-   }, []);
+   }, [props.match.params.id]);
 
    function handleSelectImages(event: ChangeEvent<HTMLInputElement>) {
       if (!event.target.files) {
@@ -97,7 +97,7 @@ export default function EditOrphanage(props: any) {
 
       await api.put('orphanages', data).then(response => {
          console.log(response);
-         if (response.status == 201) {
+         if (response.status === 201) {
             swal(
                "",
                'Cadastro realizado com sucesso! Aguarde até que este cadastro seja confirmado.',
@@ -127,7 +127,7 @@ export default function EditOrphanage(props: any) {
    }
 
    function handleRemoveImage(index: number) {
-      const oldImages = [ ... previewImages];
+      const oldImages = [ ...previewImages];
       oldImages.splice(index, 1);
       setPreviewImages(oldImages);
    }
@@ -140,7 +140,7 @@ export default function EditOrphanage(props: any) {
       }).then((willDelete) => {
          if (willDelete) {
             api.delete(`orphanages/${user.id}/${id}`).then(response => {
-               if(response.data.status == 'ok') {
+               if(response.data.status === 'ok') {
                   history.push('/orphanage/removeconfirm');
                }
             }).catch(err => {

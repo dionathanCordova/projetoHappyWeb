@@ -65,7 +65,7 @@ export default function CreateOrphanage() {
    }
 
    function handleRemoveImage(index: number) {
-      const oldImages = [ ... previewImages];
+      const oldImages = [ ...previewImages];
       oldImages.splice(index, 1);
       setPreviewImages(oldImages);
    }
@@ -90,7 +90,7 @@ export default function CreateOrphanage() {
       })
 
       await api.post('orphanages', data).then(response => {
-         if(response.status == 201) {
+         if(response.status === 201) {
             history.push('/orphanage/createconfirm');
          }
       }).catch(err =>{

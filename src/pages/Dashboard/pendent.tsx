@@ -40,7 +40,7 @@ const Dashboard: React.FC = () => {
       api.get(`/orphanages/mylist/${user.id}/${0}`).then(response => {
          setOrphanages(response.data);
       })
-   }, [])
+   }, [user.id])
 
    function handleEditOrphanage(id: string) {
       history.push(`/orphanages/edit/${id}`);
@@ -50,7 +50,7 @@ const Dashboard: React.FC = () => {
       api.delete(`orphanages/${user.id}/${id}`).then(response => {
          console.log(response);
 
-         if (response.status == 201) {
+         if (response.status === 201) {
             swal(
                "",
                'Remoção realizado com sucesso!',
@@ -125,7 +125,7 @@ const Dashboard: React.FC = () => {
                   )
                })}
 
-               {orphanages.length == 0 &&
+               {orphanages.length === 0 &&
                   <EmptyContent>
                      <img src={emptyContent} alt="" />
                   </EmptyContent>

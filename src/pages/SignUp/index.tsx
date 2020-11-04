@@ -29,14 +29,14 @@ const SignUp: React.FC = () => {
    const handleSubmit = useCallback( async (e: FormEvent) => {
       e.preventDefault();
 
-      if(name != '' && email != '' && password != '' && password.length > 5 && password == confirm_password) {
+      if(name !== '' && email !== '' && password !== '' && password.length > 5 && password === confirm_password) {
          await api.post('/user', {
             name,
             email,
             password,
             confirm_password
          }).then(response => {
-            if(response.data.status == 'erro') {
+            if(response.data.status === 'erro') {
                swal(
                   "Ops!",
                   `${response.data.message}`,
@@ -61,7 +61,7 @@ const SignUp: React.FC = () => {
          );
       }
       
-   }, [password, email, confirm_password]);
+   }, [name, email, password, confirm_password, signIn, history]);
 
    return (
       <Container>

@@ -38,7 +38,7 @@ const Dashboard: React.FC = () => {
       api.get(`/orphanages/mylist/${user.id}/${1}`).then(response => {
          setOrphanages(response.data);
       })
-   }, [])
+   }, [user.id])
 
    function handleEditOrphanage(id: string) {
       history.push(`/orphanages/edit/${id}`);
@@ -104,7 +104,7 @@ const Dashboard: React.FC = () => {
                   )
                })}
 
-               {orphanages.length == 0 && 
+               {orphanages.length === 0 && 
                   <EmptyContent>
                      <img src={emptyContent} alt=""/>
                   </EmptyContent>
