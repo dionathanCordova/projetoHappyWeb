@@ -1,9 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FiClock, FiInfo } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 import { Map, Marker, TileLayer } from "react-leaflet";
 import { useParams } from "react-router-dom";
-import { useHistory } from 'react-router-dom';
 
 import Sidebar from "../../components/Sidebar";
 import happyMapIcon from "../../utils/mapIcon";
@@ -45,8 +44,6 @@ const OrphanageDetails: React.FC = () => {
    const params = useParams<OrphanageParams>();
    const [orphanage, setOrphanage] = useState<OrphanageInterface>();
    const [activeImageIndex, setActiveImageIndex] = useState(0);
-
-   const history = useHistory();
 
    useEffect(() => {
       api.get(`orphanages/details/${params.id}`).then(response => {

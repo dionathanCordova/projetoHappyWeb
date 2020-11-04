@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 import { Link, useHistory } from 'react-router-dom';
 
@@ -9,7 +9,7 @@ import LogoImg from '../../images/Logo.svg';
 
 const Landing: React.FC = () => {
    const history = useHistory();
-   const { user, signed, signOut } = useContext(AuthContext);
+   const { signed } = useContext(AuthContext);
 
    function handleLogin() {
       if(signed) {

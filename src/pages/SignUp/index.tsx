@@ -22,7 +22,6 @@ const SignUp: React.FC = () => {
    const [email, setEmail] = useState('');
    const [password, setPassword] = useState('');
    const [confirm_password, setConfirmPassword] = useState('');
-   const [disabled, setDisabled] = useState(true);
 
    const { signIn } = useContext(AuthContext);
 

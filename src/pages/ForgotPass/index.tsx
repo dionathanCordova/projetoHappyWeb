@@ -15,7 +15,6 @@ import {
 import api from '../../services/api';
 
 const ForgotPass: React.FC = () => {
-   const [ rememberMe, setRememberMe ] = useState(false);
    const [ email, setEmail ] = useState('');
    const [ disabled, setDisabled ] = useState(true);
 

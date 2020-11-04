@@ -11,12 +11,11 @@ import AuthContext from '../../contexts';
 import './styles.css';
 import api from "../../services/api";
 import swal from 'sweetalert';
-import state from "sweetalert/typings/modules/state";
 import Xcircle from '../../images/x-circle.svg';
 
 export default function EditOrphanage(props: any) {
    const history = useHistory();
-   const { user, signed, signOut } = useContext(AuthContext);
+   const { user } = useContext(AuthContext);
 
    const [position, setPosition] = useState({ latitude: 0, longitude: 0 });
 

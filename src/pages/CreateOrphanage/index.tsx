@@ -17,7 +17,7 @@ import './create-orphanage.css';
 
 export default function CreateOrphanage() {
    const history = useHistory();
-   const { user, signed, signOut } = useContext(AuthContext);
+   const { user } = useContext(AuthContext);
 
    const [position, setPosition] = useState({ latitude: 0, longitude: 0 });
 
@@ -40,14 +40,6 @@ export default function CreateOrphanage() {
          setLongitude(longitude);
       })
    }, []);
-
-   function handleOrphanageImages(images: any[]) {
-      const selectedImagesPreview = images.map((image: any) => {
-         return image.url;
-      })
-
-      setPreviewImages(selectedImagesPreview);
-   }
 
    function handleSelectImages(event: ChangeEvent<HTMLInputElement>) {
       if (!event.target.files) {
