@@ -34,18 +34,22 @@ function Orphanages() {
 
    useEffect(() => {
       // signOut();
+      async function getOrphanage() {
+         await api.get('orphanages').then(response => {
+            setOrphanages(response.data);
+         })
+   
+         navigator.geolocation.getCurrentPosition((position) => {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+   
+            setLatitude(latitude);
+            setLongitude(longitude);
+         })
+      }
 
-      api.get('orphanages').then(response => {
-         setOrphanages(response.data);
-      })
-
-      navigator.geolocation.getCurrentPosition((position) => {
-         const latitude = position.coords.latitude;
-         const longitude = position.coords.longitude;
-
-         setLatitude(latitude);
-         setLongitude(longitude);
-      })
+      getOrphanage();
+    
    }, [signOut, signed])
 
    const handleCreateOrphamage = useCallback(() => {
